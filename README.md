@@ -17,17 +17,17 @@ P.S. There is another project where I used *ServerSocker* in GitHub: [localhost-
 The idea for the tasks comes from another GitHub project [TaskScheduler](https://github.com/wagnerjfr/Java-TaskScheduler).
 
 The tasks currently implement are:
-* TaskBubbleSort: sorts a list of numbers.
-* TaskFiboRecursive: calculates the fibonacci of a number recursively
-* TaskBitcoin: grabs the last price(s) of the bitcoin from [BitStamp](https://www.bitstamp.net/).
+* **TaskBubbleSort**: sorts a list of numbers.
+* **TaskFiboRecursive**: calculates the fibonacci of a number recursively
+* **TaskBitcoin**: grabs the last price(s) of the bitcoin from [BitStamp](https://www.bitstamp.net/).
 
 ## How to add tasks
 
-Steps to create a new task:
+The steps to create a new task are:
 * Create a new class inside the package `task`, for example, `TaskHello.java`;
 * Make sure your class extends the abstract class `TaskImpl.java`;
 * Create a constructor and override the required method `execute()`;
-* Add your logic and attibute a String response to the `response` instance variable.
+* Add your logic and attribute a `String` response to the `response` instance variable.
 
 Example:
 ```
@@ -53,7 +53,7 @@ Result: Hello World; Executed in: 0,00s
 ```
 Just two parameters are allowed: `-d <task name> -d <parameter values>`.
 
-If you want to pass more parameter values one suggestion is to use key delimiter like comma `,`.
+If you want to pass more parameter values, one suggestion is to use key delimiter like comma `,`.
 
 ## Running the web servers in Docker containers 
 
@@ -67,16 +67,14 @@ cd task-webserver-docker
 $ docker build -t taskwebserver:1.0 .
 ```
 ### 3. Running the web servers in different containers
-Let's two containers. First start the `WebServerSocket` container that can be accessed through the port `8000`:
+Let's create two containers. First start the `WebServerSocket` container that can be accessed through the port `8000`:
 ```
 $ docker run -d --rm --name webserversocket -e WEBSERVER=WebServerSocket -p 8000:8000 taskwebserver:1.0
 ```
-
 And then start the `WebServerHttp` container that can be accessed through the port `8001`:
 ```
 $ docker run -d --rm --name webserverhttp -e WEBSERVER=WebServerHttp -p 8001:8000 taskwebserver:1.0
 ```
-
 Check whether the containers are up and running:
 ```
 $ docker ps -a
