@@ -37,26 +37,11 @@ import task.TaskImpl;
 
 public class TaskHello extends TaskImpl {
 
-    public TaskHello(String input) {
-        super(input);
-    }
-
     @Override
     public void execute() {
         result = "Hello " + input;
     }
 }
-```
-* Change `singleton/TaskExecutor.java` by adding a new "case" in the switch-case context for your task.
-
-Example:
-```
-    ...
-    case "TaskHello":
-        task = new TaskHello(input);
-        break;
-    default:
-    ...
 ```
 * When the project is compiled, up and running, the task can be called like:
 `curl -d TaskHello -d World http://localhost:8000/`

@@ -2,10 +2,6 @@ package task;
 
 public class TaskFiboRecursive extends TaskImpl {
 
-    public TaskFiboRecursive(String input) {
-        super(input);
-    }
-
     @Override
     public void execute() {
         try {

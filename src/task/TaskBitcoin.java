@@ -10,10 +10,6 @@ import java.util.List;
 
 public class TaskBitcoin extends TaskImpl {
 
-    public TaskBitcoin(String input) {
-        super(input);
-    }
-
     @Override
     public void execute() {
         try {

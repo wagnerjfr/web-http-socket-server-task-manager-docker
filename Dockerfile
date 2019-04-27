@@ -11,7 +11,7 @@ RUN mkdir -p $WEBPATH
 COPY src/ $WEBPATH
 WORKDIR $WEBPATH
 
-RUN javac *.java
+RUN javac *.java task/*.java
 
 EXPOSE 8000
 

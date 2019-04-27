@@ -6,13 +6,14 @@ public abstract class TaskImpl implements Task {
     protected String result;
     protected String executedTime;
 
-    public TaskImpl(String input) {
-        this.input = input;
-    }
-
     @Override
     public String getInput() {
         return input;
+    }
+
+    @Override
+    public void setInput(String input) {
+        this.input = input;
     }
 
     @Override

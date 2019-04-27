@@ -5,10 +5,6 @@ import java.util.StringJoiner;
 
 public class TaskBubbleSort extends TaskImpl {
 
-    public TaskBubbleSort(String input) {
-        super(input);
-    }
-
     @Override
     public void execute() {
         String[] stringArray = input.split(",");

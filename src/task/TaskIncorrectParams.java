@@ -2,10 +2,6 @@ package task;
 
 public final class TaskIncorrectParams extends TaskImpl {
 
-    public TaskIncorrectParams(String input) {
-        super(input);
-    }
-
     @Override
     public void execute() { }
 

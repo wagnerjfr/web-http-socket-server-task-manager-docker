@@ -12,34 +12,23 @@ public enum TaskExecutor {
     //Singleton
     INSTANCE;
 
+    public static final String TASKS_PACKAGE = "task.";
+
     public String run(String parameters) {
-        Task task;
+        String taskName, input = "";
 
         List<String> list = Arrays.stream(parameters.split("&")).collect(Collectors.toList());
 
         long start = System.currentTimeMillis();
         if (list.size() != 2) {
-            task = new TaskIncorrectParams("");
+            taskName = "TaskIncorrectParams";
         } else {
-            String taskName = list.get(0);
-            String input = list.get(1);
-
-            switch (taskName) {
-                case "TaskBubbleSort":
-                    task = new TaskBubbleSort(input);
-                    break;
-                case "TaskFiboRecursive":
-                    task = new TaskFiboRecursive(input);
-                    break;
-                case "TaskBitcoin":
-                    task = new TaskBitcoin(input);
-                    break;
-                default:
-                    task = new TaskNotFound("");
-                    break;
-            }
-            task.execute();
+            taskName = list.get(0);
+            input = list.get(1);
         }
+        Task task = createTask(taskName);
+        task.setInput(input);
+        task.execute();
 
         TasksList.INSTANCE.add(task);
         long end = System.currentTimeMillis();
@@ -47,5 +36,19 @@ public enum TaskExecutor {
         task.setExecutedTime(executedTime);
 
         return task.getResult();
+    }
+
+    private Task createTask(String className) {
+        Task task = null;
+        try {
+            task = (Task)Class.forName(TASKS_PACKAGE + className).newInstance();
+        } catch (Exception e) {
+            try {
+                task = (Task)Class.forName(TASKS_PACKAGE + "TaskNotFound").newInstance();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        return task;
     }
 }
