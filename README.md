@@ -88,27 +88,47 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 83a07b12b36c        taskwebserver:1.0   "/bin/sh -c 'java $W…"   18 seconds ago      Up 17 seconds       0.0.0.0:8000->8000/tcp   webserversocket
 ```
 
-## Running the tasks
+## Tasks
 
-To check whether the web servers can handle more than one request in parallel, you can open different terminal (or console) and run the command examples below.
-
-Replace `http://localhost:8000/` to `http://localhost:8001/` to run the same task but in a different web server.
+#### Bubble Sort [link](https://en.wikipedia.org/wiki/Bubble_sort)
 ```
 $ curl -d TaskBubbleSort -d 20,10,15,7,33,31,25,10,16,9,28,77,1,4,3,5,6,2,22,13 http://localhost:8000/
 ```
 This is a POST request to run the task `TaskBubbleSort` and sort the numbers `20,10,15,7,33,31,25,10,16,9,28,77,1,4,3,5,6,2,22,13`.
+
+#### Recursive Fibonacci [link](https://en.wikipedia.org/wiki/Fibonacci_number)
 ```
 $ curl -d TaskFiboRecursive -d 46 http://localhost:8000/
 ```
 This is a POST request to run the task `TaskFiboRecursive` and calculate the fibonacci value of `46`.
+
+#### Bitcoin last price list
 ```
 $ curl -d TaskBitcoin -d 5 http://localhost:8000/
 ```
 This is a POST request to run the task `TaskBitcoin` and it will bring the last values of the bitcoin request `5` times with 1s interval.
+
+#### Get executed task list
 ```
 $ curl http://localhost:8000/
 ```
 This is a GET request to list all the tasks already executed by the web server and its results.
+
+## Running the tasks in parallel in UNIX
+
+To check whether the web servers can handle more than one request in parallel, you can run the command list below or create a new one.
+
+In order to the command line to run in background we append it with `&` at the end.
+```
+curl -d TaskFiboRecursive -d 46 http://localhost:8000/ & \
+curl -d TaskFiboRecursive -d 45 http://localhost:8000/ & \
+curl -d TaskFiboRecursive -d 46 http://localhost:8000/ & \
+curl -d TaskFiboRecursive -d 45 http://localhost:8000/ & \
+curl -d TaskBitcoin -d 5 http://localhost:8000/ & \
+curl -d TaskBubbleSort -d 10,9,8,7,6,5,4,3,2,1 http://localhost:8000/ & \
+curl -d TaskBubbleSort -d 20,9,18,7,36,5,44,3,22,1 http://localhost:8000/ &
+```
+P.S. Replace the port from `:8000/` to `:8001/` to run the same task but in a different web server.
 
 ## Cleanup
 

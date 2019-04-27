@@ -44,7 +44,7 @@ public class RequestsHandlerSocket implements Runnable {
         }
 
         PrintWriter writer = new PrintWriter(out, true);
-        writer.println(response);
+        writer.print(response);
 
         writer.close();
         out.close();
