@@ -16,9 +16,12 @@ public class TaskBitcoin extends TaskImpl {
 
     @Override
     public void execute() {
-        String[] stringArray = input.split(",");
-        int times = Integer.valueOf(stringArray[0]);
-        result = getInfo(times);
+        try {
+            int times = Integer.valueOf(input);
+            result = getInfo(times);
+        } catch (Exception e) {
+            result = "Exception: " + e.getMessage();
+        }
     }
 
     public String getInfo(int times) {

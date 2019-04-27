@@ -8,10 +8,12 @@ public class TaskFiboRecursive extends TaskImpl {
 
     @Override
     public void execute() {
-        String[] stringArray = input.split(",");
-        // just one number is expected
-        int n = Integer.valueOf(stringArray[0]);
-        result = String.valueOf(fibonacci(n));
+        try {
+            int n = Integer.valueOf(input);
+            result = String.valueOf(fibonacci(n));
+        } catch (Exception e) {
+            result = "Exception: " + e.getMessage();
+        }
     }
 
     /**

@@ -1,8 +1,8 @@
 package task;
 
-public class NoTask extends TaskImpl {
+public final class TaskNotFound extends TaskImpl {
 
-    public NoTask(String input) {
+    public TaskNotFound(String input) {
         super(input);
     }
 
@@ -11,6 +11,6 @@ public class NoTask extends TaskImpl {
 
     @Override
     public String getResult() {
-        return "This task doesn't exist.\n";
+        return "ERROR: This task doesn't exist.\n";
     }
 }

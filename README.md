@@ -66,6 +66,10 @@ Something like this should be expected as output:
 wfranchi@computer:~$ curl -d TaskHello -d World http://localhost:8000
 Result: Hello World; Executed in: 0,00s
 ```
+Just two parameters are allowed: `-d <task name> -d <parameter values>`.
+
+If you want to pass more parameter values one suggestion is to use key delimiter like comma `,`.
+
 ## Running the web servers in Docker containers 
 
 ### 1. Download the project
@@ -78,12 +82,12 @@ cd task-webserver-docker
 $ docker build -t taskwebserver:1.0 .
 ```
 ### 3. Running the web servers in different containers
-Let's start the `WebServerSocket` container that can be accessed through the port `8000`:
+Let's two containers. First start the `WebServerSocket` container that can be accessed through the port `8000`:
 ```
 $ docker run -d --rm --name webserversocket -e WEBSERVER=WebServerSocket -p 8000:8000 taskwebserver:1.0
 ```
 
-Let's start the `WebServerHttp` container that can be accessed through the port `8001`:
+And then start the `WebServerHttp` container that can be accessed through the port `8001`:
 ```
 $ docker run -d --rm --name webserverhttp -e WEBSERVER=WebServerHttp -p 8001:8000 taskwebserver:1.0
 ```

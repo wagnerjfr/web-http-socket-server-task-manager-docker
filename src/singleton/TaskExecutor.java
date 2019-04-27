@@ -13,28 +13,33 @@ public enum TaskExecutor {
     INSTANCE;
 
     public String run(String parameters) {
+        Task task;
 
         List<String> list = Arrays.stream(parameters.split("&")).collect(Collectors.toList());
-        String taskName = list.get(0);
-        String input = list.get(1);
 
         long start = System.currentTimeMillis();
-        Task task;
-        switch (taskName) {
-            case "TaskBubbleSort":
-                task = new TaskBubbleSort(input);
-                break;
-            case "TaskFiboRecursive":
-                task = new TaskFiboRecursive(input);
-                break;
-            case "TaskBitcoin":
-                task = new TaskBitcoin(input);
-                break;
-            default:
-                task = new NoTask("");
-                break;
+        if (list.size() != 2) {
+            task = new TaskIncorrectParams("");
+        } else {
+            String taskName = list.get(0);
+            String input = list.get(1);
+
+            switch (taskName) {
+                case "TaskBubbleSort":
+                    task = new TaskBubbleSort(input);
+                    break;
+                case "TaskFiboRecursive":
+                    task = new TaskFiboRecursive(input);
+                    break;
+                case "TaskBitcoin":
+                    task = new TaskBitcoin(input);
+                    break;
+                default:
+                    task = new TaskNotFound("");
+                    break;
+            }
+            task.execute();
         }
-        task.execute();
 
         TasksList.INSTANCE.add(task);
         long end = System.currentTimeMillis();
