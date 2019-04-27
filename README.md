@@ -101,7 +101,8 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Running the tasks
 
-To check whether the web servers can handle more than one request in parallel, you can open different terminal (or console) and run the examples commands below.
+To check whether the web servers can handle more than one request in parallel, you can open different terminal (or console) and run the command examples below.
+
 Replace `http://localhost:8000/` to `http://localhost:8001/` to run the same task but in a different web server.
 ```
 $ curl -d TaskBubbleSort -d 20,10,15,7,33,31,25,10,16,9,28,77,1,4,3,5,6,2,22,13 http://localhost:8000/
