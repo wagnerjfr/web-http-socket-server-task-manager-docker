@@ -86,7 +86,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 83a07b12b36c        taskwebserver:1.0   "/bin/sh -c 'java $W…"   18 seconds ago      Up 17 seconds       0.0.0.0:8000->8000/tcp   webserversocket
 ```
 
-## Tasks
+## Running tasks separately
+
+You can replace the port from `:8000/` to `:8001/` to run the same task but in a different web server if you have launched two containers as described before.
 
 #### Bubble Sort [link](https://en.wikipedia.org/wiki/Bubble_sort)
 ```
@@ -126,7 +128,6 @@ curl -d TaskBitcoin -d 5 http://localhost:8000/ & \
 curl -d TaskBubbleSort -d 10,9,8,7,6,5,4,3,2,1 http://localhost:8000/ & \
 curl -d TaskBubbleSort -d 20,9,18,7,36,5,44,3,22,1 http://localhost:8000/ &
 ```
-P.S. Replace the port from `:8000/` to `:8001/` to run the same task but in a different web server.
 
 ## Cleanup
 
