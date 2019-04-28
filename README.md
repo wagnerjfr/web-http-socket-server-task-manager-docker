@@ -17,8 +17,8 @@ P.S. There is another project where I used *ServerSocker* in GitHub: [localhost-
 The idea for the tasks comes from another GitHub project [TaskScheduler](https://github.com/wagnerjfr/Java-TaskScheduler).
 
 The tasks currently implement are:
-* **TaskBubbleSort**: sorts a list of numbers.
-* **TaskFiboRecursive**: calculates the fibonacci of a number recursively
+* **TaskBubbleSort**: sorts a list of numbers [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
+* **TaskFiboRecursive**: calculates the fibonacci of a number recursively [wikipedia](https://en.wikipedia.org/wiki/Fibonacci_number)
 * **TaskBitcoin**: grabs the last price(s) of the bitcoin from [BitStamp](https://www.bitstamp.net/).
 
 ## How to add tasks
@@ -90,13 +90,13 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 You can replace the port from `:8000/` to `:8001/` to run the same task but in a different web server if you have launched two containers as described before.
 
-#### Bubble Sort [link](https://en.wikipedia.org/wiki/Bubble_sort)
+#### Bubble Sort
 ```
 $ curl -d TaskBubbleSort -d 20,10,15,7,33,31,25,10,16,9,28,77,1,4,3,5,6,2,22,13 http://localhost:8000/
 ```
 This is a POST request to run the task `TaskBubbleSort` and sort the numbers `20,10,15,7,33,31,25,10,16,9,28,77,1,4,3,5,6,2,22,13`.
 
-#### Recursive Fibonacci [link](https://en.wikipedia.org/wiki/Fibonacci_number)
+#### Recursive Fibonacci
 ```
 $ curl -d TaskFiboRecursive -d 46 http://localhost:8000/
 ```
