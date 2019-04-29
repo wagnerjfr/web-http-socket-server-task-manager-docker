@@ -5,11 +5,11 @@ There are three tasks implemented and the user can add more (see details below).
 The web servers receive the command and the parameter(s) for running a task through terminal command `curl`.
 
 ## WebServers
-* **WebServerHttp** is developed using *HttpServer* [javadoc](https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html).
+* **WebServerHttp** is developed using *HttpServer* [[javadoc](https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html)].
 
-* **WebServerSocket** is developed using *ServerSocket* [javadoc](https://docs.oracle.com/javase/8/docs/api/java/net/ServerSocket.html).
+* **WebServerSocket** is developed using *ServerSocket* [[javadoc](https://docs.oracle.com/javase/8/docs/api/java/net/ServerSocket.html)].
 
-Both web servers use *ExecutorService* [javadoc](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) that executes each submitted task in the pooled thread, more specifically, `Executors.newCachedThreadPool()` which is an unbounded thread pool with automatic thread reclamation [javadoc](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html#newCachedThreadPool--).
+Both web servers use *ExecutorService* [[javadoc](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)] that executes each submitted task in the pooled thread, more specifically, `Executors.newCachedThreadPool()` which is an unbounded thread pool with automatic thread reclamation [[javadoc](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html#newCachedThreadPool--)].
 
 P.S. There is another project where I used *ServerSocker* in GitHub: [localhost-chat-socket](https://github.com/wagnerjfr/localhost-chat-socket)
 
@@ -17,8 +17,8 @@ P.S. There is another project where I used *ServerSocker* in GitHub: [localhost-
 The idea for the tasks comes from another GitHub project [TaskScheduler](https://github.com/wagnerjfr/Java-TaskScheduler).
 
 The tasks currently implement are:
-* **TaskBubbleSort**: sorts a list of numbers [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
-* **TaskFiboRecursive**: calculates the fibonacci of a number recursively [wikipedia](https://en.wikipedia.org/wiki/Fibonacci_number)
+* **TaskBubbleSort**: sorts a list of numbers [[wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)]
+* **TaskFiboRecursive**: calculates the fibonacci of a number recursively [[wikipedia](https://en.wikipedia.org/wiki/Fibonacci_number)]
 * **TaskBitcoin**: grabs the last price(s) of the bitcoin from [BitStamp](https://www.bitstamp.net/).
 
 ## How to add tasks
@@ -30,7 +30,7 @@ The steps to create a new task are:
 * Add your logic and attribute a `String` response to the `response` instance variable.
 
 Example:
-```
+```java
 package task;
 
 import task.TaskImpl;
