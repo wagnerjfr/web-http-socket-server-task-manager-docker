@@ -1,4 +1,4 @@
-# Multi-threaded WebServers tasks executor using HttpServer and WebSocket
+# Multi-threaded WebServers tasks executor using WebHttpServer and WebServerSocket
 
 This project aims to create two kinds of multi-threaded web servers (with thread-pooling) for executing simple tasks.
 There are three tasks implemented and the user can add more (see details below).
