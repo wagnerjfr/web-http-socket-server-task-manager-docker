@@ -59,8 +59,8 @@ If you want to pass more parameter values, one suggestion is to use key delimite
 
 ### 1. Download the project
 ```
-git clone https://github.com/wagnerjfr/task-webserver-docker.git
-cd task-webserver-docker
+git clone https://github.com/wagnerjfr/web-http-socket-server-task-manager-docker.git
+cd web-http-socket-server-task-manager-docker
 ```
 ### 2. Build the project image
 ```
