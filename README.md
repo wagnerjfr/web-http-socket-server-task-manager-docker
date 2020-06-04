@@ -79,7 +79,7 @@ Check whether the containers are up and running:
 ```
 $ docker ps -a
 ```
-The output:
+Sample output:
 ```console
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
 5f3564b1e3bd        taskwebserver:1.0   "/bin/sh -c 'java $W…"   3 seconds ago       Up 2 seconds        0.0.0.0:8001->8000/tcp   webserverhttp
